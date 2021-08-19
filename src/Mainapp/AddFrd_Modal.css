@@ -1,0 +1,60 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .modal-main {
+    position:relative;
+    padding: 20px;
+    background: white;
+    width: 50%;
+    height:auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+
+
+  #secretcode_form{
+    text-align: center;
+  }
+
+  .secret_code{
+    width: 200px;
+    height: 20px;
+    font-size: medium;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    padding: 7px;
+    outline: none;
+  }
+
+  .modal_buttons{
+    margin: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .close{
+    background-color: #fd3300;
+  }
+  
+  .display-block {
+    display: block;
+  }
+  
+  .display-none {
+    display: none;
+  }

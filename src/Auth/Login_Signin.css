@@ -1,0 +1,68 @@
+.SignupCont,.loginCont{
+    display:grid;
+    place-items: center;
+}
+.SignupCont_inside,.loginCont_inside{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    width:40vw;
+    box-shadow:-1px 4px 20px -6px rgba(0,0,0,0.75);
+}
+
+#logo{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+#Signup_form,#login_form{
+    padding: 30px;
+}
+
+.Signup_input,.login_input{
+    width: 200px;
+    height: 20px;
+    font-size: medium;
+    margin-bottom: 20px;
+
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	padding: 7px;
+	outline: none;
+}
+
+#Signin_btn,#log_btn{
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    display: block;
+    margin:auto;
+
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.log_in_btn,.sign_in_btn{
+    height: 40px;
+    margin: 0px 20px 20px;
+
+    background-color: #ff6b58;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error_msg{
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ed4956;
+    margin: 10px 0;
+}
