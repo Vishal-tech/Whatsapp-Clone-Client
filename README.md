@@ -21,3 +21,29 @@
 
 * Authentication - Firebase
 * Deployment - Heroku
+
+# Features
+
+* Signup/Login using email and password
+* Realtime messaging
+* Add friend
+
+# Demo
+  1. Login/Signup using you email and password
+    (or)
+    <ins>Demo Sign in</ins>
+    Guest-1
+    email: abc@gmail.com
+    password: waclone321#
+  
+  2. Copy your secret code
+
+  3. Open another browser/incognito and Login using another account
+    <ins>Demo Sign in</ins>
+    Guest-2
+    email: xyz@gmail.com
+    password: waclone321#
+
+  4. Open Add friend in Guest-2 and paste Guest-1's secret code to get connected
+
+  5. Send messages to see realtime changes.

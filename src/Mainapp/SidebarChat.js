@@ -7,6 +7,7 @@ import axios from '../axios';
 
 function SidebarChat({msgFunc,sidebarRender}) {
     const { currentUser } = useAuth();
+    const { FrdUser } = useAuth();
     const [chatChange,setChatChange]=useState();
 
     const [isMount, setIsMount] = useState(true);
@@ -57,14 +58,15 @@ function SidebarChat({msgFunc,sidebarRender}) {
     }, [chatChange])
 
 
-    const handleChatChange = (chat_name) =>{
-        setChatChange(chat_name)
+    const handleChatChange = (name,chat) =>{
+        FrdUser(name);
+        setChatChange(chat);
     }
         
     const ChatEntries=()=>{
         var frds = []
         for (const [key, value] of Object.entries(friends)){
-           frds.push(<div className="sidebarChat" onClick={()=>handleChatChange(value.chat)}>
+           frds.push(<div className="sidebarChat" onClick={()=>handleChatChange(value.name,value.chat)}>
                         <Avatar />
                         <div className="sidebarChat_info">
                             <h2>{value.name}</h2>
@@ -76,7 +78,7 @@ function SidebarChat({msgFunc,sidebarRender}) {
 
     return (
         <div>
-            <div className="sidebarChat" onClick={()=>handleChatChange('messagecontents')}>
+            <div className="sidebarChat" onClick={()=>handleChatChange('Global chat','messagecontents')}>
                 <Avatar />
                 <div className="sidebarChat_info">
                     <h2>Global chat</h2>

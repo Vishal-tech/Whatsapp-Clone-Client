@@ -9,6 +9,7 @@ import { useAuth } from '../Auth/AuthContext'
 function Chat( {messages} ){
 
 	const { currentUser } = useAuth();
+	const { frduser } = useAuth();
 	const [input,setInput]= useState("");
 
 	const sendMessage= async (e)=>{
@@ -30,7 +31,7 @@ function Chat( {messages} ){
 				<div className="chat_header">
 						<Avatar />
 				<div className="chat_headerInfo">
-						<h3>Global chat</h3>
+						<h3>{frduser}</h3>
 				</div>
 				<div className="chat_headerRight">
 						<IconButton>

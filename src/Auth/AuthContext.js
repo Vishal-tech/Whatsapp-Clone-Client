@@ -5,8 +5,14 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 export function AuthProvider({ children }) {
+  const [frduser ,setFrdUser] = useState("Global chat")
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+
+  const FrdUser = (name) =>{
+      setFrdUser(name);
+  }
+
   const signup = (email, password, fullName) => {
     let promise = new Promise(function (resolve, reject) {
       auth
@@ -59,10 +65,12 @@ export function AuthProvider({ children }) {
   }, [currentUser]);
 const value = {
     currentUser,
+    frduser,
     signup, 
     signin,
     signout,
-    passwordReset
+    passwordReset,
+    FrdUser
 }; 
   return (
     <AuthContext.Provider value={value}>
