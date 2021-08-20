@@ -36,7 +36,7 @@
     email: abc@gmail.com
     password: waclone321#
     
-    ![login](/blob/master/Screenshots/login.jpg)
+    ![login](Screenshots/login.jpg)
   
   2. Copy your secret code
 
