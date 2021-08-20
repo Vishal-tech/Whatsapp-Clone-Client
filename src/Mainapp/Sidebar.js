@@ -21,6 +21,11 @@ function Sidebar({msgFunc}){
 	const [anchorEl, setAnchorEl] = useState(null);
     const [modalState, setModalState]= useState(false);
 
+    const handleCopyID = () => {
+        navigator.clipboard.writeText(currentUser.uid)
+        alert("Your Secret code is copied. Send to your friend to get connected")
+    }
+
     const handleSignout = () => {
 		signout();
 		history.push('/Login');
@@ -64,6 +69,7 @@ function Sidebar({msgFunc}){
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
+                                <MenuItem onClick={handleCopyID}>Copy My Secret Code</MenuItem>
                                 <MenuItem onClick={handleAddFrd}>Add a friend</MenuItem>
                                 <MenuItem onClick={handleSignout}>Logout</MenuItem>
                                 <AddFrdModal show={modalState} handleClose={handleAddFrd} />     
