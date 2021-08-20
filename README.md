@@ -29,11 +29,11 @@
 * Add friend
 
 # Demo
-  1. Login/Signup using you email and password
-    (or)
-    <ins>Demo Sign in</ins>
-    Guest-1
-    email: abc@gmail.com
+  1. Login/Signup using you email and password\
+    (or)\
+    <u>Demo Sign in<u>\
+    Guest-1\
+    email: abc@gmail.com\
     password: waclone321#
     
    <img src="Screenshots/login.jpg" alt="login" width="600"/>
@@ -41,10 +41,10 @@
   2. Copy your secret code
      
 
-  3. Open another browser/incognito and Login using another account
-    <ins>Demo Sign in</ins>
-    Guest-2
-    email: xyz@gmail.com
+  3. Open another browser/incognito and Login using another account\
+    Demo Sign in\
+    Guest-2\
+    email: xyz@gmail.com\
     password: waclone321#
 
   4. Open Add friend in Guest-2 and paste Guest-1's secret code to get connected
