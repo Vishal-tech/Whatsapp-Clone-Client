@@ -1,4 +1,4 @@
-# Whatsapp-Clone-Server
+# Whatsapp-Clone-Client
 ### _**MERN build**_
 
 <!-- ABOUT THE PROJECT -->
