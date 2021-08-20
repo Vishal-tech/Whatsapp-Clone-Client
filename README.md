@@ -35,8 +35,11 @@
     Guest-1
     email: abc@gmail.com
     password: waclone321#
+    
+   <img src="Screenshots/login.jpg" alt="login" width="600"/>
   
   2. Copy your secret code
+     
 
   3. Open another browser/incognito and Login using another account
     <ins>Demo Sign in</ins>
@@ -45,5 +48,7 @@
     password: waclone321#
 
   4. Open Add friend in Guest-2 and paste Guest-1's secret code to get connected
+
+  <img src="Screenshots/add_frd.jpg" alt="login" width="600"/>
 
   5. Send messages to see realtime changes.
