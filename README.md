@@ -39,6 +39,7 @@
    <img src="Screenshots/login.jpg" alt="login" width="600"/>
   
   2. Copy your secret code
+  
      <img src="Screenshots/code.gif" alt="code" width="600"/>
 
   3. Open another browser/incognito and Login using another account\
