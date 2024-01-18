@@ -1,20 +1,20 @@
 import React from 'react';
 
 import { useHistory } from 'react-router-dom';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../../auth/AuthContext';
 
-function Logout(){
-    
+function Logout() {
+
     const history = useHistory();
 
     const { signout } = useAuth();
-  
+
     const handleSignout = () => {
-      signout();
-      history.push('/Login');
+        signout();
+        history.push('/Login');
     };
-  
-    return(
+
+    return (
         <div>
             <button onClick={handleSignout}>Log out</button>
         </div>

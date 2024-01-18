@@ -1,25 +1,25 @@
-import react,{ useState,useEffect } from 'react';
+import react, { useState, useEffect } from 'react';
 import "./Sidebar.css";
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import dp from "../images/dp.jpg"
-import {Avatar,IconButton,Menu,MenuItem} from '@material-ui/core';
+import dp from "../../images/dp.jpg"
+import { Avatar, IconButton, Menu, MenuItem } from '@material-ui/core';
 import SearchOutlined from "@material-ui/icons/SearchOutlined";
 import SidebarChat from './SidebarChat';
 
 
 import AddFrdModal from './AddFrd_Modal'
-import { useAuth } from '../Auth/AuthContext'
+import { useAuth } from '../../auth/AuthContext'
 import { useHistory } from 'react-router-dom';
 
-function Sidebar({msgFunc}){
-    
+function Sidebar({ msgFunc }) {
+
     const { currentUser } = useAuth();
     const { signout } = useAuth();
-	const history = useHistory();
-	const [anchorEl, setAnchorEl] = useState(null);
-    const [modalState, setModalState]= useState(false);
+    const history = useHistory();
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [modalState, setModalState] = useState(false);
 
     const handleCopyID = () => {
         navigator.clipboard.writeText(currentUser.uid)
@@ -27,18 +27,18 @@ function Sidebar({msgFunc}){
     }
 
     const handleSignout = () => {
-		signout();
-		history.push('/Login');
-	  }; 
+        signout();
+        history.push('/Login');
+    };
 
 
-	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
-	  };
-	
-	  const handleClose = () => {
-		setAnchorEl(null);
-	  };
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
 
     const handleAddFrd = () => {
@@ -60,23 +60,23 @@ function Sidebar({msgFunc}){
                         <ChatIcon />
                     </IconButton>
                     <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-						<MoreVertIcon />
-					</IconButton>
-                            <Menu
-                                id="simple-menu"
-                                anchorEl={anchorEl}
-                                keepMounted
-                                open={Boolean(anchorEl)}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleCopyID}>Copy My Secret Code</MenuItem>
-                                <MenuItem onClick={handleAddFrd}>Add a friend</MenuItem>
-                                <MenuItem onClick={handleSignout}>Logout</MenuItem>
-                                <AddFrdModal show={modalState} handleClose={handleAddFrd} />     
-                            </Menu>
-                            
+                        <MoreVertIcon />
+                    </IconButton>
+                    <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        <MenuItem onClick={handleCopyID}>Copy My Secret Code</MenuItem>
+                        <MenuItem onClick={handleAddFrd}>Add a friend</MenuItem>
+                        <MenuItem onClick={handleSignout}>Logout</MenuItem>
+                        <AddFrdModal show={modalState} handleClose={handleAddFrd} />
+                    </Menu>
+
                 </div>
-                              
+
             </div>
             <div className="sidebar_search">
                 <div className="sidebar_searchContainer">
@@ -88,7 +88,7 @@ function Sidebar({msgFunc}){
                 <SidebarChat msgFunc={msgFunc} sidebarRender={modalState} />
             </div>
         </div>
-       
+
     )
 }
 

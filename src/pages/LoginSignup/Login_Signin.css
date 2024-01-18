@@ -1,0 +1,77 @@
+#logo {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.signupCont,
+.loginCont {
+    display: grid;
+    place-items: center;
+}
+
+.signupCont__inside,
+.loginCont__inside {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.signupCont__title,
+.loginCont__title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.signupCont__form,
+.loginCont__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.signupCont__signupInput,
+.loginCont__loginInput {
+    width: 300px;
+    font-size: medium;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+
+.signupCont__btn,
+.loginCont__btn {
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    padding: 10px;
+}
+
+.signupCont__btn--green,
+.loginCont__btn--green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.signupCont__btn--red,
+.loginCont__btn--red {
+    background-color: #ff6b58;
+    color: white;
+}
+
+.error_msg {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ed4956;
+    margin-top: 10px;
+}
