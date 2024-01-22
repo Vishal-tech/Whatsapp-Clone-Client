@@ -1,17 +1,17 @@
-import { useContext, useState, useEffect, createContext } from 'react';
-import { auth } from '../services/firebase';
+import { useContext, useState, useEffect, createContext } from "react";
+import { auth } from "../services/firebase";
 const AuthContext = createContext();
 export function useAuth() {
   return useContext(AuthContext);
 }
 export function AuthProvider({ children }) {
-  const [frduser, setFrdUser] = useState("Global chat")
+  const [frduser, setFrdUser] = useState("Global chat");
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
   const FrdUser = (name) => {
     setFrdUser(name);
-  }
+  };
 
   const signup = (email, password, fullName) => {
     let promise = new Promise(function (resolve, reject) {
@@ -70,7 +70,7 @@ export function AuthProvider({ children }) {
     signin,
     signout,
     passwordReset,
-    FrdUser
+    FrdUser,
   };
   return (
     <AuthContext.Provider value={value}>
