@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import "./Chat.css";
 import io from "socket.io-client";
 
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Chat({ messages, setMessages }) {
   const socket = io("http://localhost:3001", {

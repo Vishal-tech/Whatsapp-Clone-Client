@@ -3,13 +3,15 @@ import "./Sidebar.css";
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import dp from "../../images/dp.jpg";
+import defaultAvatar from "../../images/defaultAvatar.png";
 import { Avatar, IconButton, Menu, MenuItem } from "@material-ui/core";
 import SearchOutlined from "@material-ui/icons/SearchOutlined";
 import SidebarChat from "./SidebarChat";
+import AddFrdModal from "./Friends/AddFrd_Modal";
+import SentRequestModal from "./Friends/SentRequest_Modal";
+import ReceivedRequestsModal from "./Friends/ReceivedRequests_Modal";
 
-// import AddFrdModal from "./AddFrd_Modal";
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 
 function Sidebar({ msgFunc }) {
@@ -17,7 +19,9 @@ function Sidebar({ msgFunc }) {
   const { signout } = useAuth();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [modalState, setModalState] = useState(false);
+  const [addFrdModalState, setAddFrdModalState] = useState(false);
+  const [sentReqModalState, setSentReqModalState] = useState(false);
+  const [receivedReqModalState, setReceivedReqModalState] = useState(false);
 
   const handleSignout = async () => {
     await signout();
@@ -33,14 +37,22 @@ function Sidebar({ msgFunc }) {
   };
 
   const handleAddFrd = () => {
-    setModalState(!modalState);
+    setAddFrdModalState(!addFrdModalState);
+  };
+
+  const handleSentRequests = () => {
+    setSentReqModalState(!sentReqModalState);
+  };
+
+  const handleReceivedRequests = () => {
+    setReceivedReqModalState(!receivedReqModalState);
   };
 
   return (
     <div className="sidebar">
       <div className="sidebar_header">
         <div className="sidebar_user">
-          <Avatar src={dp} />
+          <Avatar src={defaultAvatar} />
           <h3>{currentUser.displayName}</h3>
         </div>
         <div className="sidebar_headerRight">
@@ -64,9 +76,33 @@ function Sidebar({ msgFunc }) {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleAddFrd}>Add a friend</MenuItem>
+            <MenuItem onClick={handleAddFrd}>Find friends</MenuItem>
+            <MenuItem onClick={handleSentRequests}>Sent requests</MenuItem>
+            <MenuItem onClick={handleReceivedRequests}>
+              Received requests
+            </MenuItem>
             <MenuItem onClick={handleSignout}>Logout</MenuItem>
-            {/* <AddFrdModal show={modalState} handleClose={handleAddFrd} /> */}
+            {addFrdModalState ? (
+              <AddFrdModal show={addFrdModalState} handleClose={handleAddFrd} />
+            ) : (
+              ""
+            )}
+            {sentReqModalState ? (
+              <SentRequestModal
+                show={sentReqModalState}
+                handleClose={handleSentRequests}
+              />
+            ) : (
+              ""
+            )}
+            {receivedReqModalState ? (
+              <ReceivedRequestsModal
+                show={receivedReqModalState}
+                handleClose={handleReceivedRequests}
+              />
+            ) : (
+              ""
+            )}
           </Menu>
         </div>
       </div>
@@ -77,7 +113,7 @@ function Sidebar({ msgFunc }) {
         </div>
       </div>
       <div className="sidebar_chats">
-        <SidebarChat msgFunc={msgFunc} sidebarRender={modalState} />
+        <SidebarChat msgFunc={msgFunc} sidebarRender={addFrdModalState} />
       </div>
     </div>
   );

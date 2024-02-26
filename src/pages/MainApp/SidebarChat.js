@@ -1,7 +1,7 @@
 import { Avatar } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import "./SidebarChat.css";
 
 function SidebarChat({ msgFunc, sidebarRender }) {

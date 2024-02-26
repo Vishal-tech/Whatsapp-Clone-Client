@@ -4,7 +4,7 @@ import WhatsApp from "../../images/WhatsApp.png";
 
 import { useRef, useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { addUser } from "../../services/api";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,7 +36,6 @@ function Signup() {
         uid: resObj.user.uid,
       });
 
-      setLoading(false);
       history.push("/");
     } catch (err) {
       setError(err.message);

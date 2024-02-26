@@ -3,7 +3,7 @@ import "./MainApp.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
 
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { Redirect } from "react-router-dom";
 
 function MainApp() {

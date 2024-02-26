@@ -3,7 +3,7 @@ import "./Login_Signin.css";
 import WhatsApp from "../../images/WhatsApp.png";
 
 import { Redirect, useHistory } from "react-router-dom";
-import { useAuth } from "../../auth/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
