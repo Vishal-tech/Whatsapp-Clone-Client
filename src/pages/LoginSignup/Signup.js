@@ -17,6 +17,7 @@ function Signup() {
   const fullNameRef = useRef();
   const passwordRef = useRef();
   const { currentUser, signup } = useAuth();
+
   const history = useHistory();
 
   const handleSignup = async (e) => {
@@ -30,13 +31,12 @@ function Signup() {
     try {
       const resObj = await signup(email, password, fullName);
       console.log(resObj);
-      await addUser({
+      const createdUserObj = await addUser({
         name: fullName,
         email: email,
         uid: resObj.user.uid,
       });
-
-      history.push("/");
+      setLoading(false);
     } catch (err) {
       setError(err.message);
       setLoading(false);
@@ -44,7 +44,7 @@ function Signup() {
   };
   return (
     <>
-      {currentUser ? (
+      {!loading && currentUser ? (
         <Redirect to="/" />
       ) : (
         <div className="signupCont">

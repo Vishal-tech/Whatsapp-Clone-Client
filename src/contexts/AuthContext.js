@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect, createContext } from "react";
 import { auth } from "../services/firebase";
-import apiRequest from "../services/axiosConfig";
 
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
@@ -13,8 +12,8 @@ export const AuthProvider = ({ children }) => {
     let promise = new Promise(function (resolve, reject) {
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then((ref) => {
-          ref.user.updateProfile({
+        .then(async (ref) => {
+          await ref.user.updateProfile({
             displayName: fullName,
           });
           resolve(ref);
@@ -58,21 +57,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      // Add a request interceptor to attach Firebase ID token to each request
-      apiRequest.interceptors.request.use(
-        async (config) => {
-          if (user) {
-            console.log("Current user found:", user.uid);
-            const token = await user.getIdToken();
-            config.headers.Authorization = `Bearer ${token}`;
-          }
-          return config;
-        },
-        (error) => {
-          return Promise.reject(error);
-        }
-      );
-
       setCurrentUser(user);
       setLoading(false);
     });
@@ -82,6 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     currentUser,
+    setCurrentUser,
     signup,
     signin,
     signout,

@@ -15,8 +15,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 
 function Sidebar({ msgFunc }) {
-  const { currentUser } = useAuth();
-  const { signout } = useAuth();
+  const { currentUser, signout } = useAuth();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const [addFrdModalState, setAddFrdModalState] = useState(false);
