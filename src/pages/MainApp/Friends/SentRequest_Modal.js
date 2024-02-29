@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { fetchUsersByUid } from "../../../services/api";
-import { useAuth } from "../../../contexts/AuthContext";
+import { useData } from "../../../contexts/DataContext";
 import FriendModal from "./Friend_Modal";
 
 const SentRequestModal = ({ show, handleClose }) => {
-  const { currentUserObj } = useAuth();
+  const { currentUserObj } = useData();
   const [usersArr, setUsersArr] = useState([]);
   const [loading, setLoading] = useState(false);
 

@@ -11,6 +11,7 @@ import {
   rejectFriendRequest,
 } from "../../../services/api";
 import { useAuth } from "../../../contexts/AuthContext";
+import { useData } from "../../../contexts/DataContext";
 
 const FriendModal = ({
   show,
@@ -26,7 +27,8 @@ const FriendModal = ({
   loading,
   setLoading,
 }) => {
-  const { currentUser, currentUserObj, setCurrentUserObj } = useAuth();
+  const { currentUser } = useAuth();
+  const { currentUserObj, setCurrentUserObj } = useData();
 
   const handleSendRequest = async (userObj) => {
     try {

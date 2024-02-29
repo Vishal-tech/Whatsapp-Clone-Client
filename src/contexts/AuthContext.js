@@ -1,11 +1,13 @@
 import { useContext, useState, useEffect, createContext } from "react";
 import { auth } from "../services/firebase";
+import apiRequest from "../services/axiosConfig";
 
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
+  const [authToken, setAuthToken] = useState();
   const [loading, setLoading] = useState(true);
 
   const signup = (email, password, fullName) => {
@@ -56,12 +58,20 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const token = await user.getIdToken();
+        apiRequest.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      } else {
+        apiRequest.defaults.headers.common["Authorization"] = null;
+      }
       setCurrentUser(user);
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const value = {
